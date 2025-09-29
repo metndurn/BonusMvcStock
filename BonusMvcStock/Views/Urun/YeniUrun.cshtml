@@ -1,0 +1,29 @@
+﻿
+@{
+    ViewBag.Title = "YeniUrun";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<form method="post">
+    <h2>Yeni Urun Ekleme</h2>
+    <br />
+    <label>Urun Adını Giriniz...</label>
+    <input type="text" class="form-control" name="UrunAd" />
+    <br />
+    <label>Urun Marka Adını Giriniz...</label>
+    <input type="text" class="form-control" name="UrunMarka" />
+    <br />
+    <label>Urun Stok Giriniz...</label>
+    <input type="number" class="form-control" name="UrunStok" min="0" />
+    <br />
+    <label>Urun Alış Fiyatı Giriniz...</label>
+    <input type="number" class="form-control" name="UrunAlisFiyati" min="0" step="0.01" />
+    <br />
+    <label>Urun Satış Fiyatı Giriniz...</label>
+    <input type="number" class="form-control" name="UrunSatisFiyati" min="0" step="0.01" />
+    <br />
+    <label>Urun Kategori Adını Giriniz...</label>
+    <input type="text" class="form-control" name="Kategori" />
+    <br />
+    <button class="btn btn-info">Kaydet</button>
+</form>
