@@ -1,0 +1,16 @@
+﻿@model BonusMvcStock.Models.Entity.Kategoriler
+@{
+    ViewBag.Title = "KategoriGetir";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+@*burada model olarak tek bir kategori nesnesi alıyoruz ve guncelleme yapmak ıstedıgımız
+    alandakı kategorının adının gozukmesını ıstıyoruz yanı hangı kategorı guncellenecekse o gozuksun*@
+@using (Html.BeginForm("KategoriGüncelle", "Kategori", FormMethod.Post))
+{
+    <h2>Kategori Güncelleme</h2>
+    @Html.HiddenFor(x => x.Id, new { @class = "form-control" })//ıd ıcerısındekı degerı alır hiddenfor ile sistemde var ama sayfada gozukmeyecektır
+    <br />
+    @Html.TextBoxFor(x => x.KategoriAd, new { @class = "form-control" })//KategoriAd ıcerısındekı degerı alır
+    <br />
+    <button class="btn btn-warning">Güncelle</button>
+}

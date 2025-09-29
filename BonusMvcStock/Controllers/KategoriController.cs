@@ -22,7 +22,7 @@ namespace BonusMvcStock.Controllers
 			return View();
 		}
 		[HttpPost]/*sayfa yucelendıktın sonra calısan metot*/
-		public ActionResult YeniKategori(Kategoriler kategoriler)
+		public ActionResult YeniKategori(Kategoriler kategoriler)/*parametreli metod*/
 		{
 			db.Kategoriler.Add(kategoriler);/*kategorıler tablosuna yenı bır kategori ekler*/
 			db.SaveChanges();
@@ -35,9 +35,16 @@ namespace BonusMvcStock.Controllers
 			db.SaveChanges();
 			return RedirectToAction("Index");
 		}
-		public ActionResult KategoriGüncelle(int id)
+		public ActionResult KategoriGetir(int id)
 		{
 			var kategori = db.Kategoriler.Find(id);/*kategorı tablosunda ıd degerıne gore arama yapar*/
+			return View("KategoriGetir", kategori);
+		}
+		public ActionResult KategoriGüncelle(Kategoriler kategoriler)/*parametreli metod*/
+		{
+			var kategori = db.Kategoriler.Find(kategoriler.Id);/*kategorı tablosunda ıd degerıne gore arama yapar*/
+			kategori.KategoriAd = kategoriler.KategoriAd;/*gelen degerı gunceller*/
+			db.SaveChanges();
 			return RedirectToAction("Index");
 		}
 	}
