@@ -1,8 +1,26 @@
-﻿
+﻿@using BonusMvcStock.Models.Entity @*burada istediğim alan neyse onu liste olarak alıyoruz*@
+@model List<Kategoriler>
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
-<h2>Index</h2>
+<table class="table table-bordered">
+    <tr>
+        <th>ID</th>
+        <th>KATEGORİ ADI</th>
+        <th>SİL</th>
+        <th>GÜNCELLE</th>
+    </tr>
+    @foreach (var ktg in Model)
+    {
+        <tr>
+            <td>@ktg.Id</td>
+            <td>@ktg.KategoriAd</td>
+            <td><a href="/Kategori/KategoriSil/@ktg.Id" class="btn btn-danger">Sil</a></td>
+            <td><a href="/Kategori/KategoriGüncelle/@ktg.Id" class="btn btn-success">Güncelle</a></td>
+        </tr>
+    }
+</table>
+<a href="/Kategori/YeniKategori" class="btn btn-primary">Yeni Kategori Ekle</a>
 
