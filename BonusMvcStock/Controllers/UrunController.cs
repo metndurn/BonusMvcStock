@@ -13,7 +13,9 @@ namespace BonusMvcStock.Controllers
         DbMvcStockEntities db = new DbMvcStockEntities();/*nesne turetıp ıcındekılere ulastık*/
 		public ActionResult Index()
         {
-            var urunler = db.Urunler.ToList();
+			//var urunler = db.Urunler.Include("Kategoriler").ToList();
+			//var urunler = db.urunler.Include("Kategoriler").ToList();
+			var urunler = db.Urunler.ToList();/*urunler tablosundakı verılerı lısteler*/
 			return View(urunler);
         }
         [HttpGet]/*sayfa yucelenırken ılk calısan metot*/
