@@ -1,29 +1,29 @@
-﻿
+﻿@model BonusMvcStock.Models.Entity.Urunler
 @{
     ViewBag.Title = "YeniUrun";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
 <form method="post">
-    <h2>Yeni Urun Ekleme</h2>
+    <h2>Yeni Ürün Ekleme</h2>
     <br />
-    <label>Urun Adını Giriniz...</label>
-    <input type="text" class="form-control" name="UrunAd" />
+    <label>Ürün Adı</label>
+    @Html.TextBoxFor(x => x.UrunAd, new { @class = "form-control" })
     <br />
-    <label>Urun Marka Adını Giriniz...</label>
-    <input type="text" class="form-control" name="UrunMarka" />
+    <label>Ürün Marka Adı</label>
+    @Html.TextBoxFor(x => x.UrunMarka, new { @class = "form-control" })
     <br />
-    <label>Urun Stok Giriniz...</label>
-    <input type="number" class="form-control" name="UrunStok" min="0" />
+    <label>Ürün Stok</label>
+    @Html.TextBoxFor(x => x.UrunStok, new { @class = "form-control" })
     <br />
-    <label>Urun Alış Fiyatı Giriniz...</label>
-    <input type="number" class="form-control" name="UrunAlisFiyati" min="0" step="0.01" />
+    <label>Ürün Alış Fiyatı</label>
+    @Html.TextBoxFor(x => x.UrunAlisFiyati, new { @class = "form-control" })
     <br />
-    <label>Urun Satış Fiyatı Giriniz...</label>
-    <input type="number" class="form-control" name="UrunSatisFiyati" min="0" step="0.01" />
+    <label>Ürün Satış Fiyatı</label>
+    @Html.TextBoxFor(x => x.UrunSatisFiyati, new { @class = "form-control" })
     <br />
-    <label>Urun Kategori Adını Giriniz...</label>
-    <input type="text" class="form-control" name="Kategori" />
+    <label>Ürün Kategori Adı</label>
+    @Html.TextBoxFor(x => x.Kategori, new { @class = "form-control" })
     <br />
     <button class="btn btn-info">Kaydet</button>
 </form>

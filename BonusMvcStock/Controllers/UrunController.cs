@@ -14,7 +14,6 @@ namespace BonusMvcStock.Controllers
 		public ActionResult Index()
         {
 			//var urunler = db.Urunler.Include("Kategoriler").ToList();
-			//var urunler = db.urunler.Include("Kategoriler").ToList();
 			var urunler = db.Urunler.ToList();/*urunler tablosundakı verılerı lısteler*/
 			return View(urunler);
         }
