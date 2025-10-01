@@ -27,6 +27,7 @@ namespace BonusMvcStock.Models.Entity
         public Nullable<decimal> UrunAlisFiyati { get; set; }
         public Nullable<decimal> UrunSatisFiyati { get; set; }
         public Nullable<int> Kategori { get; set; }
+        public Nullable<bool> Durum { get; set; }
     
         public virtual Kategoriler Kategoriler { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

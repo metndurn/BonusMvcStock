@@ -1,31 +1,27 @@
 ﻿@model BonusMvcStock.Models.Entity.Urunler
 @{
-    ViewBag.Title = "YeniUrun";
+    ViewBag.Title = "UrunGetir";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
-
-<form method="post">
-    <h2>Yeni Ürün Ekleme</h2>
+@*burada model olarak tek bir kategori nesnesi alıyoruz ve guncelleme yapmak ıstedıgımız
+    alandakı kategorının adının gozukmesını ıstıyoruz yanı hangı kategorı guncellenecekse o gozuksun*@
+@using (Html.BeginForm("UrunGüncelle", "Urun", FormMethod.Post))
+{
+    <h2>Ürün Güncelleme</h2>
+    @Html.HiddenFor(x => x.Id, new { @class = "form-control" })//ıd ıcerısındekı degerı alır hiddenfor ile sistemde var ama sayfada gozukmeyecektır
     <br />
-    <label>Ürün Adı</label>
     @Html.TextBoxFor(x => x.UrunAd, new { @class = "form-control" })
     <br />
-    <label>Ürün Marka Adı</label>
     @Html.TextBoxFor(x => x.UrunMarka, new { @class = "form-control" })
     <br />
-    <label>Ürün Stok</label>
     @Html.TextBoxFor(x => x.UrunStok, new { @class = "form-control" })
     <br />
-    <label>Ürün Alış Fiyatı</label>
     @Html.TextBoxFor(x => x.UrunAlisFiyati, new { @class = "form-control" })
     <br />
-    <label>Ürün Satış Fiyatı</label>
     @Html.TextBoxFor(x => x.UrunSatisFiyati, new { @class = "form-control" })
     <br />
-    <label>Ürün Kategori Adı</label>
     @Html.DropDownListFor(x => x.Kategoriler.Id, (List<SelectListItem>)ViewBag.kategoridegeri, "Kategori Seçiniz", new { @class = "form-control" })
     <br />
-    <button class="btn btn-info">Kaydet</button>
+    <button class="btn btn-warning">Güncelle</button>
     <a href="/Urun/Index/" class="btn btn-success">Geri Dön</a>
-    <br />
-</form>
+}
