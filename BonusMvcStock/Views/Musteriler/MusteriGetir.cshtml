@@ -1,0 +1,23 @@
+﻿@model BonusMvcStock.Models.Entity.Musteriler
+@{
+    ViewBag.Title = "MusteriGetir";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+@*burada model olarak tek bir kategori nesnesi alıyoruz ve guncelleme yapmak ıstedıgımız
+    alandakı kategorının adının gozukmesını ıstıyoruz yanı hangı kategorı guncellenecekse o gozuksun*@
+@using (Html.BeginForm("MusteriGuncelle", "Musteriler", FormMethod.Post))
+{
+    <h2>Musteri Güncelleme</h2>
+    @Html.HiddenFor(x => x.Id, new { @class = "form-control" })//ıd ıcerısındekı degerı alır hiddenfor ile sistemde var ama sayfada gozukmeyecektır
+    <br />
+    @Html.TextBoxFor(x => x.MusteriAd, new { @class = "form-control" })//KategoriAd ıcerısındekı degerı alır
+    <br />
+    @Html.TextBoxFor(x => x.MusteriSoyad, new { @class = "form-control" })//KategoriAd ıcerısındekı degerı alır
+    <br />
+    @Html.TextBoxFor(x => x.MusteriSehir, new { @class = "form-control" })//KategoriAd ıcerısındekı degerı alır
+    <br />
+    @Html.TextBoxFor(x => x.MusteriBakiye, new { @class = "form-control" })//KategoriAd ıcerısındekı degerı alır
+    <br />
+    <button class="btn btn-warning">Güncelle</button>
+    <a href="/Musteriler/Index/" class="btn btn-success">Geri Dön</a>
+}

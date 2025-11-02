@@ -1,9 +1,12 @@
 ﻿using BonusMvcStock.Models.Entity;
+using PagedList;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using PagedList;
+using PagedList.Mvc;
 
 namespace BonusMvcStock.Controllers
 {
@@ -11,9 +14,10 @@ namespace BonusMvcStock.Controllers
     {
 		// GET: Kategori
 		DbMvcStockEntities db = new DbMvcStockEntities();/*nesne turetıp ıcındekılere ulastık*/
-		public ActionResult Index()
+		public ActionResult Index(int ktgsayfa = 1)
         {
-            var kategoriler = db.Kategoriler.ToList();/*kategorıler tablosundakı verılerı lısteler*/
+			//var kategoriler = db.Kategoriler.ToList();/*kategorıler tablosundakı verılerı lısteler*/
+			var kategoriler = db.Kategoriler.ToList().ToPagedList(ktgsayfa, 10);//sayfalama burada var
 			return View(kategoriler);
         }
 		[HttpGet]/*sayfa yucelenırken ılk calısan metot*/

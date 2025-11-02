@@ -1,0 +1,25 @@
+﻿@model BonusMvcStock.Models.Entity.Musteriler
+@{
+    ViewBag.Title = "YeniMusteri";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<form method="post">
+    <h2>Yeni Müşteri Ekleme</h2>
+    <br />
+    <label>Müşteri Adı</label>
+    @Html.TextBoxFor(x => x.MusteriAd, new { @class = "form-control" })
+    <br />
+    <label>Müşteri Soyadı</label>
+    @Html.TextBoxFor(x => x.MusteriSoyad, new { @class = "form-control" })
+    <br />
+    <label>Müşteri Şehri</label>
+    @Html.TextBoxFor(x => x.MusteriSehir, new { @class = "form-control" })
+    <br />
+    <label>Müşteri Bakiyesi</label>
+    @Html.TextBoxFor(x => x.MusteriBakiye, new { @class = "form-control" })
+    <br />
+    <button class="btn btn-info">Kaydet</button>
+    <a href="/Musteriler/Index/" class="btn btn-success">Geri Dön</a>
+    <br />
+</form>
