@@ -11,10 +11,9 @@ namespace BonusMvcStock.Models.Entity
 {
     using System;
     using System.Collections.Generic;
-	using System.ComponentModel.DataAnnotations;
-
-	public partial class Musteriler
-	{
+    
+    public partial class Musteriler
+    {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Musteriler()
         {
@@ -22,15 +21,9 @@ namespace BonusMvcStock.Models.Entity
         }
     
         public int Id { get; set; }
-
-		[Required(ErrorMessage = "Ad Alanýný Boþ Geçemezsiniz...")]
-        [StringLength(30,ErrorMessage ="Ad Alaný 30 Karakterden Büyük Olamaz...")]
-		public string MusteriAd { get; set; }
-
-		[Required(ErrorMessage = "Soyad Alanýný Boþ Geçemezsiniz...")]
-		[StringLength(30, ErrorMessage = "Soyad Alaný 30 Karakterden Büyük Olamaz...")]
-		public string MusteriSoyad { get; set; }
-		public string MusteriSehir { get; set; }
+        public string MusteriAd { get; set; }
+        public string MusteriSoyad { get; set; }
+        public string MusteriSehir { get; set; }
         public Nullable<decimal> MusteriBakiye { get; set; }
         public Nullable<bool> Durum { get; set; }
     

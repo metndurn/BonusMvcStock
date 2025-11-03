@@ -30,5 +30,6 @@ namespace BonusMvcStock.Models.Entity
         public virtual DbSet<Personeller> Personeller { get; set; }
         public virtual DbSet<Satislar> Satislar { get; set; }
         public virtual DbSet<Urunler> Urunler { get; set; }
+        public virtual DbSet<Admin> Admin { get; set; }
     }
 }

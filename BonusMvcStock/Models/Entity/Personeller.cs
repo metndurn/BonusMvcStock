@@ -11,8 +11,8 @@ namespace BonusMvcStock.Models.Entity
 {
     using System;
     using System.Collections.Generic;
-
-	public partial class Personeller
+    
+    public partial class Personeller
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Personeller()
@@ -21,8 +21,8 @@ namespace BonusMvcStock.Models.Entity
         }
     
         public int Id { get; set; }
-		public string PersonalAd { get; set; }
-		public string PersonalSoyad { get; set; }
+        public string PersonalAd { get; set; }
+        public string PersonalSoyad { get; set; }
         public string Departman { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
