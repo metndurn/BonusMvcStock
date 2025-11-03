@@ -10,13 +10,15 @@
     <h2>Musteri Güncelleme</h2>
     @Html.HiddenFor(x => x.Id, new { @class = "form-control" })//ıd ıcerısındekı degerı alır hiddenfor ile sistemde var ama sayfada gozukmeyecektır
     <br />
-    @Html.TextBoxFor(x => x.MusteriAd, new { @class = "form-control" })//KategoriAd ıcerısındekı degerı alır
+    @Html.TextBoxFor(x => x.MusteriAd, new { @class = "form-control" })
     <br />
-    @Html.TextBoxFor(x => x.MusteriSoyad, new { @class = "form-control" })//KategoriAd ıcerısındekı degerı alır
+    @Html.TextBoxFor(x => x.MusteriSoyad, new { @class = "form-control" })
     <br />
-    @Html.TextBoxFor(x => x.MusteriSehir, new { @class = "form-control" })//KategoriAd ıcerısındekı degerı alır
+    @Html.TextBoxFor(x => x.MusteriSehir, new { @class = "form-control" })
     <br />
-    @Html.TextBoxFor(x => x.MusteriBakiye, new { @class = "form-control" })//KategoriAd ıcerısındekı degerı alır
+    @Html.TextBoxFor(x => x.MusteriBakiye, new { @class = "form-control" })
+    <br />
+    @Html.TextBoxFor(x => x.Durum, new { @class = "form-control" })
     <br />
     <button class="btn btn-warning">Güncelle</button>
     <a href="/Musteriler/Index/" class="btn btn-success">Geri Dön</a>

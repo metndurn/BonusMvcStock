@@ -17,7 +17,7 @@ namespace BonusMvcStock.Controllers
         {
 			/*sayfalama islemi yapıldı*/
             //var musteriler = db.Musteriler.ToList();
-            var musteriler = db.Musteriler.ToList().ToPagedList(mussayfa, 10);//sayfalama burada var
+            var musteriler = db.Musteriler.Where(x => x.Durum == true).ToList().ToPagedList(mussayfa, 10);//sayfalama burada var
 			return View(musteriler);
         }
         [HttpGet]
@@ -28,14 +28,23 @@ namespace BonusMvcStock.Controllers
 		[HttpPost]
 		public ActionResult YeniMusteri(Musteriler musteriler)
 		{
+			if (!ModelState.IsValid)
+			{
+				return View("YeniMusteri");
+			}
+			musteriler.Durum = true;
 			db.Musteriler.Add(musteriler);
 			db.SaveChanges();
 			return RedirectToAction("Index");
 		}
-		public ActionResult MusteriSil(int id)
+		public ActionResult MusteriSil(Musteriler musteriler)
 		{
-			var musteriler = db.Musteriler.Find(id);/*musteri tablosunda ıd degerıne gore arama yapar*/
-			db.Musteriler.Remove(musteriler);/*bulunan musterileri sıler*/
+			//var musteriler = db.Musteriler.Find(id);/*musteri tablosunda ıd degerıne gore arama yapar*/
+			//db.Musteriler.Remove(musteriler);/*bulunan musterileri sıler*/
+			//db.SaveChanges();
+			//return RedirectToAction("Index");
+			var musteribul = db.Musteriler.Find(musteriler.Id);/*musteri tablosunda ıd degerıne gore arama yapar*/
+			musteribul.Durum = false;/*bulunan musteriyi pasif yapar*/
 			db.SaveChanges();
 			return RedirectToAction("Index");
 		}
@@ -51,6 +60,7 @@ namespace BonusMvcStock.Controllers
 			musteri.MusteriSoyad = musteriler.MusteriSoyad;
 			musteri.MusteriSehir = musteriler.MusteriSehir;
 			musteri.MusteriBakiye = musteriler.MusteriBakiye;
+			musteri.Durum = musteriler.Durum;
 			db.SaveChanges();
 			return RedirectToAction("Index");
 		}

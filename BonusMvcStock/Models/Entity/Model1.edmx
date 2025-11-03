@@ -21,6 +21,7 @@
           <Property Name="MusteriSoyad" Type="varchar" MaxLength="30" />
           <Property Name="MusteriSehir" Type="varchar" MaxLength="30" />
           <Property Name="MusteriBakiye" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="Durum" Type="bit" />
         </EntityType>
         <EntityType Name="Personeller">
           <Key>
@@ -148,6 +149,7 @@
           <Property Name="MusteriSehir" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
           <Property Name="MusteriBakiye" Type="Decimal" Precision="18" Scale="2" />
           <NavigationProperty Name="Satislar" Relationship="Self.FK_Satislar_Musteriler" FromRole="Musteriler" ToRole="Satislar" />
+          <Property Name="Durum" Type="Boolean" />
         </EntityType>
         <EntityType Name="Personeller">
           <Key>
@@ -276,6 +278,7 @@
           <EntitySetMapping Name="Musteriler">
             <EntityTypeMapping TypeName="DbMvcStockModel.Musteriler">
               <MappingFragment StoreEntitySet="Musteriler">
+                <ScalarProperty Name="Durum" ColumnName="Durum" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="MusteriAd" ColumnName="MusteriAd" />
                 <ScalarProperty Name="MusteriSoyad" ColumnName="MusteriSoyad" />

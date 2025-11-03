@@ -4,7 +4,9 @@
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
-<form method="post">
+@using (Html.BeginForm("YeniUrun", "Urun", FormMethod.Post))
+{
+@*<form method="post">*@
     <h2>Yeni Ürün Ekleme</h2>
     <br />
     <label>Ürün Adı</label>
@@ -28,4 +30,4 @@
     <button class="btn btn-info">Kaydet</button>
     <a href="/Urun/Index/" class="btn btn-success">Geri Dön</a>
     <br />
-</form>
+    }
