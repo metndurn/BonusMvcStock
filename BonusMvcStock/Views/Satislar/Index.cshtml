@@ -1,0 +1,38 @@
+﻿@using PagedList.Mvc;
+@using PagedList;
+@using BonusMvcStock.Models.Entity;
+@model  PagedList.IPagedList<BonusMvcStock.Models.Entity.Satislar>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<table class="table table-bordered">
+    <tr>
+        <th>ID</th>
+        <th>ÜRÜN</th>
+        <th>PERSONEL</th>
+        <th>MÜŞTERİ</th>
+        <th>FİYAT</th>
+        <th>TARİH</th>
+        <th>SİL</th>
+        <th>GÜNCELLE</th>
+    </tr>
+    @foreach (var satislar in Model)
+    {
+        <tr>
+            <td>@satislar.Id</td>
+            <td>@satislar.Urunler.UrunAd</td>
+            <td>@satislar.Personeller.PersonalAd @satislar.Personeller.PersonalSoyad</td>
+            <td>@satislar.Musteriler.MusteriAd @satislar.Musteriler.MusteriSoyad</td>
+            <td>@satislar.Fiyat</td>
+            <td>@satislar.Tarih</td>
+            <td><a href="/Satislar/SatisSil/@satislar.Id" class="btn btn-danger">Sil</a></td>
+            <td><a href="/Satislar/SatisGetir/@satislar.Id" class="btn btn-success">Güncelle</a></td>
+        </tr>
+    }
+</table>
+
+@Html.PagedListPager((IPagedList)Model, satsayfa => Url.Action("Index", new { satsayfa }))
+<br />
+<a href="/Satislar/YeniSatis/" class="btn btn-primary">Yeni Satış Ekle</a>
+

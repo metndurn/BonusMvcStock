@@ -1,0 +1,28 @@
+﻿@model BonusMvcStock.Models.Entity.Satislar
+@{
+    ViewBag.Title = "YeniSatis";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+@using (Html.BeginForm("YeniSatis", "Satislar", FormMethod.Post))
+{
+    <h2>Yeni Satış Paneli</h2>
+    <br />
+    <label>Ürün Adı</label>
+    @Html.DropDownListFor(x => x.Urunler.Id, (List<SelectListItem>)ViewBag.urundegeri, "Ürün Seçiniz", new { @class = "form-control" })
+    <br />
+    <label>Ürünü Satan Personel</label>
+    @Html.DropDownListFor(x => x.Personeller.Id, (List<SelectListItem>)ViewBag.personeldegeri, "Personel Seçiniz", new { @class = "form-control" })
+    <br />
+    <label>Ürünü Alan Müşteri</label>
+    @Html.DropDownListFor(x => x.Musteriler.Id, (List<SelectListItem>)ViewBag.musteridegeri, "Müşteri Seçiniz", new { @class = "form-control" })
+    <br />
+    <label>Ürün Fiyatı</label>
+    @Html.TextBoxFor(x => x.Fiyat, new { @class = "form-control" })
+    <br />
+    @*<label>Ürün Satış Tarihi</label>
+    @Html.TextBoxFor(x => x.Tarih, new { @class = "form-control" })
+    <br />*@
+    <button class="btn btn-info">Satis Yap</button>
+    <a href="/Satislar/Index/" class="btn btn-success">Geri Dön</a>
+    <br />
+}
