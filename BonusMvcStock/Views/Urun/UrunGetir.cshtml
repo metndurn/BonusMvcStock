@@ -5,7 +5,7 @@
 }
 @*burada model olarak tek bir kategori nesnesi alıyoruz ve guncelleme yapmak ıstedıgımız
     alandakı kategorının adının gozukmesını ıstıyoruz yanı hangı kategorı guncellenecekse o gozuksun*@
-@using (Html.BeginForm("UrunGüncelle", "Urunler", FormMethod.Post))
+@using (Html.BeginForm("UrunGüncelle", "Urun", FormMethod.Post))
 {
     <h2>Ürün Güncelleme</h2>
     @Html.HiddenFor(x => x.Id, new { @class = "form-control" })//ıd ıcerısındekı degerı alır hiddenfor ile sistemde var ama sayfada gozukmeyecektır

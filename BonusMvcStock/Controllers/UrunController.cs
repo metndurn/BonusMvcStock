@@ -1,4 +1,5 @@
 ﻿using BonusMvcStock.Models.Entity;
+using PagedList;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,11 +12,18 @@ namespace BonusMvcStock.Controllers
     {
         // GET: Urun
         DbMvcStockEntities db = new DbMvcStockEntities();/*nesne turetıp ıcındekılere ulastık*/
-		public ActionResult Index()
+		public ActionResult Index(string urun, int urunsayfa = 1)
         {
 			//var urunler = db.Urunler.Include("Kategoriler").ToList();
-			var urunler = db.Urunler.Where(x => x.Durum == true).ToList();/*urunler tablosundakı verılerı lısteler*/
-			return View(urunler);
+			//var urunler = db.Urunler.Where(x => x.Durum == true).ToList();/*urunler tablosundakı verılerı lısteler*/
+			//var urunler	= from x in db.Urunler select x;/*urunler tablosundakı verılerı lısteler*/
+			var urunler = db.Urunler.Where(x => x.Durum == true);/*urunler tablosundakı verılerı lısteler*/
+			if (!string.IsNullOrEmpty(urun))
+			{
+				urunler = urunler.Where(x => x.UrunAd.Contains(urun) && x.Durum == true);
+			}
+			
+			return View(urunler.ToList().ToList().ToPagedList(urunsayfa, 10));
         }
         [HttpGet]/*sayfa yucelenırken ılk calısan metot*/
         public ActionResult YeniUrun()

@@ -1,10 +1,20 @@
 ﻿@using BonusMvcStock.Models.Entity @*burada istediğim alan neyse onu liste olarak alıyoruz*@
-@model List<Urunler>
+@using PagedList
+@using PagedList.Mvc
+@model PagedList.IPagedList<Urunler>
+
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
+@using (Html.BeginForm("Index", "Urun", FormMethod.Get))
+{
+    <p>
+        Ürün Adı:@Html.TextBox("Urun")
+        <input type="submit" value="Ara" class="btn btn-primary" />
+    </p>
+}
 <table class="table table-bordered">
     <tr>
         <th>ID</th>
@@ -32,5 +42,8 @@
         </tr>
     }
 </table>
+
+@Html.PagedListPager((IPagedList)Model, urunsayfa => Url.Action("Index", new { urunsayfa }))
+<br />
 <a href="/Urun/YeniUrun/" class="btn btn-primary">Yeni Ürün Ekle</a>
 
