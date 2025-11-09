@@ -8,7 +8,8 @@ using System.Web.Mvc;
 
 namespace BonusMvcStock.Controllers
 {
-    public class SatislarController : Controller
+	[Authorize]/*bu controller ıcındekı tum ıslemler ıcın yetkı kontrolu yapar*/
+	public class SatislarController : Controller
     {
 		// GET: Satislar
 		DbMvcStockEntities db = new DbMvcStockEntities();/*nesne turetıp ıcındekılere ulastık*/

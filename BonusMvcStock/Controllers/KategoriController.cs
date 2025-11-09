@@ -10,7 +10,8 @@ using PagedList.Mvc;
 
 namespace BonusMvcStock.Controllers
 {
-    public class KategoriController : Controller
+	[Authorize]/*bu controller ıcındekı tum ıslemler ıcın yetkı kontrolu yapar*/
+	public class KategoriController : Controller
     {
 		// GET: Kategori
 		DbMvcStockEntities db = new DbMvcStockEntities();/*nesne turetıp ıcındekılere ulastık*/

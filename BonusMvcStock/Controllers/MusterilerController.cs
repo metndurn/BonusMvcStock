@@ -9,7 +9,8 @@ using PagedList.Mvc;
 
 namespace BonusMvcStock.Controllers
 {
-    public class MusterilerController : Controller
+	[Authorize]/*bu controller ıcındekı tum ıslemler ıcın yetkı kontrolu yapar*/
+	public class MusterilerController : Controller
     {
 		// GET: Musteriler
 		DbMvcStockEntities db = new DbMvcStockEntities();/*nesne turetıp ıcındekılere ulastık*/
